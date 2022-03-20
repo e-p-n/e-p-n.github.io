@@ -16,14 +16,16 @@ function Portfolio() {
             transition={{duration: 1.0}}
         >
             <section id="fader">
-                <div id="headingHolder">
-                    <h3>portfolio</h3>
+                <div id="thumbnailHolder">
+                    <div id="headingHolder">
+                        <h3>portfolio</h3>
+                    </div>
+                    <div id="contentHolder">
+                        {thumbnails.map ( (thumbnail, i) =>
+                            <Thumbnail thumbnail={thumbnail} portItem={i} key={i} />,
+                        )} 
+                    </div>
                 </div>
-                <div id="contentHolder">
-                    {thumbnails.map ( (thumbnail, i) =>
-                        <Thumbnail thumbnail={thumbnail} portItem={i} key={i} />,
-                    )} 
-                </div>  
             </section>
         </motion.div>  
     );

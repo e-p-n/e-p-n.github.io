@@ -17,13 +17,44 @@ import PortHolder from "./components/portHolder";
 
 import { AnimatePresence, motion } from 'framer-motion';
 
+function reloadPage() {
+  window.location.reload();
+}
+
 function App() {
   const account = useSelector((state) =>  state.account);
 
+  let initWidth1 = "500px";
+  let initHeight1 = "100%";
+  let initWidth2 = "calc(100vw - 640px)";
+  let initHeight2 = "100%";
+  let transitionSpeed = 1;
 
-  const [itemWidth, setItemWidth] = useState("500px");
-  const [mainWidth, setMainWidth] = useState("calc(100vw - 640px)")
-  console.log(itemWidth)
+
+
+  if (window.innerWidth  <= 450) {
+    initWidth1 = "100%";
+    initHeight1 = "190px";
+    initWidth2 = "100%";
+    initHeight2 = "calc(100vh - 320px)";
+    transitionSpeed = 0.5;
+   
+  } else if (window.innerWidth  <= 950) {
+    initWidth1 = "250px";
+    initHeight1 = "100%";
+    initWidth2 = "calc(100vw - 390px)";
+    initHeight2 = "100%";
+    transitionSpeed = 1;  
+  
+  }
+
+  const [itemWidth, setItemWidth] = useState(initWidth1);
+  const [mainWidth, setMainWidth] = useState(initWidth2);
+  const [itemHeight, setItemHeight] = useState(initHeight1);
+  const [mainHeight, setMainHeight] = useState(initHeight2);
+
+
+
   return (
     
     <>
@@ -33,9 +64,12 @@ function App() {
       <AnimatePresence  exitBeforeEnter initial={false}>
         <motion.div 
           style={{backgroundColor: "white"}}
-          animate={{ width: itemWidth }} 
+          animate={{ 
+            width: itemWidth,
+            height: itemHeight
+          }} 
           transition={{
-            duration: 1.0,
+            duration: transitionSpeed,
           }}
         >
           <AnimatePresence  exitBeforeEnter initial={false}>
@@ -52,14 +86,17 @@ function App() {
         </motion.div>
       </AnimatePresence>
         <motion.div
-          animate={{ width: mainWidth }} 
-          transition={{duration: 1.0}}
+          animate={{ 
+            width: mainWidth,
+            height: mainHeight
+          }} 
+          transition={{duration: transitionSpeed}}
         >
           <main id="slider">
                 
 
 
-                <Nav setItemWidth={setItemWidth} setMainWidth={setMainWidth} />
+                <Nav setItemWidth={setItemWidth} setItemHeight={setItemHeight} setMainWidth={setMainWidth} setMainHeight={setMainHeight} />
                 <AnimatePresence exitBeforeEnter initial={false}>
                   {account === 'about'  && (
                       <About />
@@ -80,9 +117,7 @@ function App() {
       </div>
 
       <Footer></Footer>
-      <div id="apology">
-        I'm sorry, this website does not currently support your screen (or browser window) size. If you are using a desktop computer or laptop, try increasing the size of your browser window. If you are using a tablet, try looking at it in landscape mode. Otherwise, I'm working to resolve the issue. Please check back soon.
-      </div>
+      {/* {window.screen.orientation.onchange = () => reloadPage() } */}
     </>
 
   );

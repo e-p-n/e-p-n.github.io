@@ -19,12 +19,11 @@ function Contact() {
                     <h3>contact</h3>
                 </div>
                 <div id="contentHolder">
-                    <div>
-                        <Airform email="eric.n@me.com" method="POST">
+                    <div id="contactText">
+                    <form action="https://formsubmit.co/eric.n@me.com"  method="POST"> 
                             <div>
                                 <label htmlFor="name" className="sr-only">name</label>
                                 <input type="text" id="name" name="name" placeholder="name" autoFocus required />
-
                             </div>
                             <div>
                                 <label htmlFor="email" value="email" className="sr-only">email</label>
@@ -34,25 +33,23 @@ function Contact() {
                             <div>
                                 <label htmlFor="subject" className="sr-only">subject</label>
                                 <div className="select">
-                                    <select type="subject" name="subject" id="subject" required defaultValue="what">
+                                    <select type="subject" name="_subject" id="subject" required defaultValue="what">
                                         <option value="what" disabled>what can I help you with?</option>
-                                        <option value="develop">development inquiry</option>
-                                        <option value="design">design inquiry</option>
-                                        <option value="other">other</option>
+                                        <option value="Contact Form: Development Inquiry">development inquiry</option>
+                                        <option value="Contact Form: Design Inquiry">design inquiry</option>
+                                        <option value="Contact Form: other">other</option>
                                     </select>
-
                                     <span className="focus"></span>
+                                 </div>
                             </div>
-                            </div>
-                        <div>
+                            <div>
                                 <label htmlFor="message" className="sr-only">message</label>
                                 <textarea id="message" name="message" placeholder="message" required />
-
+                                <input type='hidden' name='_after' value='https://e-p-n.github.io' />
                             </div>
                         <button>send message</button>
-                        </Airform>
-                        <p className="smallprint">Contact form powered by <a href="https://airform.io" target="_blankç">airform.io</a></p>
-                        <p className="smallprint tighter">Please note that there are some technical issues with airform. After it processes your form, you need to press a button to return to my site. This button does not appear to work in Firefox or Safari. Until I have discoved a solution, you will probably need to hit the back button a couple of time to get back to my site.</p>
+                        </form>
+                        <p className="smallprint">Contact form powered by <a href="https://mailthis.to" target="_blank">mailthis.to</a></p>
                     </div>
                 </div>  
 

@@ -20,7 +20,7 @@ function Resume() {
                     <h3>resume</h3>
                 </div>
                 <div id="contentHolder">
-                    <div>
+                    <div id="resumeText">
                         <p><a href={resume} className="pdfLink"><span className="enlarge"><FontAwesomeIcon icon={faFilePdf} /></span> Download PDF</a></p>
                         <h4>skills</h4>
                         <ul>

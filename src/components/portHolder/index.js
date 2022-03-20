@@ -13,6 +13,7 @@ function PortHolder() {
     const selectedItem = portfolio[itemNumber];
 
 
+
     return (
         <motion.div
             style={{height:"100%"}}
@@ -33,10 +34,10 @@ function PortHolder() {
                         <p>{selectedItem.tools}</p>
                         <p>
                             {selectedItem.website_1 &&
-                                <a href={selectedItem.website_1} target={selectedItem.name.toLowerCase().replace(/\s/g, '')}><button>Website</button></a> 
+                                <a href={selectedItem.website_1} target={selectedItem.name.toLowerCase().replace(/\s/g, '')}><button>{selectedItem.button_1}</button></a> 
                             }
                             {selectedItem.website_2 && 
-                                <a href={selectedItem.website_2} target={selectedItem.name.toLowerCase().replace(/\s/g, '')}><button> <FontAwesomeIcon icon={faGithub} /> Github repo</button></a>
+                                <a href={selectedItem.website_2} target={selectedItem.name.toLowerCase().replace(/\s/g, '')}><button> {selectedItem.button_2 == 'Github repo' && <FontAwesomeIcon icon={faGithub} />} {selectedItem.button_2}</button></a>
                             }
                         </p>
                     </div>
