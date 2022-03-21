@@ -766,7 +766,16 @@ footer div {
         border-left: none;
         overflow: hidden;
     }
-
+    header {
+        width: 100%;
+        height: 80px;
+        margin-top: 23px;
+        padding-left: 20px;
+        padding-top: 0;
+        position: absolute;
+        top: 23px;
+    }
+    
     h1 {
         font-size: 2em;
         display: block;
@@ -784,14 +793,7 @@ footer div {
         line-height: .5em;
     }
 
-    header {
-        width: 100%;
-        height: 80px;
-        padding-left: 20px;
-        padding-top: 0;
-        position: absolute;
-        top: 23px;
-    }
+
 
     header div {
         transform: rotate(0deg);
@@ -850,6 +852,9 @@ footer div {
         grid-template-columns: auto;
         margin-left: 0;
     }
+    #thumbnailHolder {
+        width: 100%;
+    }
     section #headingHolder {
         transform: rotate(0deg);
         height: 30px;
@@ -862,6 +867,9 @@ footer div {
     section #contentHolder {
         font-size: 1.1em;
         line-height: 1.6em;
+        padding: 0;
+        margin: 0;
+        width: 100%;
         display: flex;
         overflow-x: auto;
         overflow-y: hidden;
@@ -882,6 +890,9 @@ footer div {
 
     #resumeText, #contactText {
         height: calc(100vh - 260px); 
+    }
+    #contactText {
+        width: 100%;
     }
 
     .thumbnail {
